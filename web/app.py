@@ -16,8 +16,8 @@ class ReusableForm(Form):
         
         print form.errors
         if request.method == 'POST':
-        name=request.form['name']
-        print name
+            name=request.form['name']
+            print name
         
         if form.validate():
         # Save the comment here.
