@@ -15,4 +15,4 @@ def data():
         return render_template('data.html',form_data = form_data)
  
  
-app.run(host='localhost', port=5000)
+app.run(host='0.0.0.0', port=5000)
