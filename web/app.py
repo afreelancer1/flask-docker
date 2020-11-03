@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
@@ -28,9 +28,8 @@ class primeForm(FlaskForm):
 
     @app.route("/prime", methods=['GET', 'POST'])
     def get_prime():
-        global mx, last
-        number = mx
-        end = last
+        number = request.args.get('mx')
+        end = request.args.get('last')
         all_numbers = []
 
         for i in range(2, number + 1):
