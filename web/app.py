@@ -45,10 +45,10 @@ class primeForm(FlaskForm):
                     last_int[l].append(i)
 
             prime = last_int[end][random.randint(0, len(last_int[end]))]
-            return prime
+            return "Your random prime number is " + str(prime)
         else:
             return '''<form method="POST">
-    <p style="text-align: center;">You want a prime number between 2 and&nbsp; <input type="text" name="mx" /> that ends with&nbsp; <input type="text" name="last" /></p>
+    <p style="text-align: center;">You want a random prime number between 2 and&nbsp; <input type="text" name="mx" /> that ends with&nbsp; <input type="text" name="last" /></p>
     <p style="text-align: center;"><br /> <input type="submit" value="Submit" /></p>
     </form>'''
 
