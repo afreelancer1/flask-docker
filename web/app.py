@@ -11,8 +11,8 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class primeForm(FlaskForm):
-    mx = StringField('Username', validators=[DataRequired()])
-    last = StringField('Username', validators=[DataRequired()])
+    mx = StringField('Maximum', validators=[DataRequired()])
+    last = StringField('Last', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
     @app.route('/', methods=['GET', 'POST'])
@@ -20,7 +20,7 @@ class primeForm(FlaskForm):
         form = primeForm()
         if form.validate_on_submit():
             flash('Prime requested upto {}'.format(
-                form.username.data))
+                form.mx.data))
             return redirect('/index')
         return render_template('prime.html', title='Your Prime', form=form)
 
