@@ -50,7 +50,7 @@ class ReusableForm(Form):
                 last_int[l].append(i)
 
         prime = last_int[end][random.randint(0, len(last_int[end]))]
-        return "Your prime number is " + str(prime)
+        return prime
 
     @app.route("/", methods=['GET', 'POST'])
     def hello():
