@@ -13,10 +13,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 
 class primeForm(FlaskForm):
-    mx = StringField('Maximum', validators=[DataRequired()])
-    last = StringField('Last', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
+    
     @app.route('/', methods=['GET', 'POST'])
     def get_info():
         if request.method == 'POST':  # this block is only entered when the form is submitted
