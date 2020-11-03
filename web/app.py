@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class primeForm(FlaskForm):
     mx = StringField('Username', validators=[DataRequired()])
-    mx = StringField('Username', validators=[DataRequired()])
+    last = StringField('Username', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
