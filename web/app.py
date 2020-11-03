@@ -1,5 +1,6 @@
-from flask import Flask, render_template, flash, request
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 import random
 
 # App config.
@@ -7,17 +8,12 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
-testest = '''<datalist id="browsers">
-<option value="1"></option>
-<option value="3"></option>
-<option value="5"></option>
-<option value="7"></option>
-<option value="9"></option>
-</datalist>
-<form action="/prime">
-<h3 style="text-align: center;"><br /><span style="color: #808080;">You want a prime number between 2 and <input type="text" id="mx" name="mx" /> ending in <input list="browsers" type="text" id="last" name="last" /></span></h3>
-<h3 style="text-align: center;"><input type="submit" value="Submit" /></h3>
-</form>'''
+
+class primeForm(FlaskForm):
+    mx = StringField('Username', validators=[DataRequired()])
+    mx = StringField('Username', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
