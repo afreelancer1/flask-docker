@@ -1,3 +1,4 @@
+from flask import render_template, flash, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
@@ -23,9 +24,6 @@ class primeForm(FlaskForm):
             return redirect('/index')
         return render_template('prime.html', title='Your Prime', form=form)
 
-class ReusableForm(Form):
-    name = TextField('Name:', validators=[validators.required()])
-    
     @app.route("/prime", methods=['GET', 'POST'])
     def get_prime():
         number = request.args.get('mx')
@@ -56,21 +54,5 @@ class ReusableForm(Form):
         prime = last_int[end][random.randint(0, len(last_int[end]))]
         return prime
 
-    @app.route("/", methods=['GET', 'POST'])
-    def hello():
-        form = ReusableForm(request.form)
-        
-        print form.errors
-        if request.method == 'POST':
-            name=request.form['name']
-            print name
-        
-        if form.validate():
-        # Save the comment here.
-            flash('Hello ' + name)
-        else:
-            flash('Error: All the form fields are required. ')
-        
-        return testest
  
 app.run(host='0.0.0.0', port=5000)
