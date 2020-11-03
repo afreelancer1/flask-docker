@@ -14,6 +14,14 @@ class primeForm(FlaskForm):
     last = StringField('Username', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+    @app.route('/', methods=['GET', 'POST'])
+    def login():
+        form = primeForm()
+        if form.validate_on_submit():
+            flash('Prime requested upto {}'.format(
+                form.username.data))
+            return redirect('/index')
+        return render_template('prime.html', title='Your Prime', form=form)
 
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
