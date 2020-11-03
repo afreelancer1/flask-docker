@@ -28,6 +28,7 @@ class primeForm(FlaskForm):
 
     @app.route("/prime", methods=['GET', 'POST'])
     def get_prime():
+        global mx, last
         number = mx
         end = last
         all_numbers = []
