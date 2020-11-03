@@ -13,7 +13,10 @@ testest = '''<datalist id="browsers">
 <option value="7"></option>
 <option value="9"></option>
 </datalist>
-<h3 style="text-align: center;"><br /><span style="color: #808080;">You want a prime number between 2 and <input type="text" /> ending in <input list="browsers" type="text" /></span></h3>'''
+<form action="/">
+<h3 style="text-align: center;"><br /><span style="color: #808080;">You want a prime number between 2 and <input type="text" id="mx" name="mx"/> ending in <input list="browsers" type="text" id="last" name="last"/></span></h3>
+  <input type="submit" value="Submit">
+</form>'''
 
 class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
