@@ -20,7 +20,7 @@ class primeForm(FlaskForm):
     @app.route('/', methods=['GET', 'POST'])
     def get_info():
         if request.method == 'POST':  # this block is only entered when the form is submitted
-            number = request.form.get('mx')
+            number = int(request.form.get('mx'))
             end = request.form.get('last')
             all_numbers = []
 
