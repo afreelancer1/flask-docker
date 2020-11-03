@@ -21,7 +21,7 @@ class primeForm(FlaskForm):
         if form.validate_on_submit():
             flash('Prime requested upto {}'.format(
                 form.mx.data))
-            return redirect('/index')
+            return redirect('/prime')
         return render_template('prime.html', title='Your Prime', form=form)
 
     @app.route("/prime", methods=['GET', 'POST'])
