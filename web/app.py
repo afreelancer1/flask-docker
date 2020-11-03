@@ -23,9 +23,9 @@ class ReusableForm(Form):
     name = TextField('Name:', validators=[validators.required()])
     
     @app.route("/prime", methods=['GET', 'POST'])
-    def get_prime(mx, last):
-        number = 1000
-        end = '7'
+    def get_prime():
+        number = request.args.get('mx')
+        end = request.args.get('last')
         all_numbers = []
 
         for i in range(2, number + 1):
@@ -50,8 +50,6 @@ class ReusableForm(Form):
                 last_int[l].append(i)
 
         prime = last_int[end][random.randint(0, len(last_int[end]))]
-
-
         return "Your prime number is " + str(prime)
 
     @app.route("/", methods=['GET', 'POST'])
